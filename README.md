@@ -1,8 +1,11 @@
-參考網站：https://pusher.com/tutorials/publish-laravel-packagist
+參考網站：
+https://pusher.com/tutorials/publish-laravel-packagist
+http://www.alvinchen.club/2018/05/04/%E6%A8%A1%E7%B5%84%E5%8C%96-%E5%A5%97%E4%BB%B6-%E9%96%8B%E7%99%BC%E8%87%AA%E5%B7%B1%E7%9A%84package/
 
 母專案要做的事情
 
 STEP.0 
+
 jwt先安裝設定好
 
 https://github.com/tymondesigns/jwt-auth
@@ -13,6 +16,7 @@ https://github.com/tymondesigns/jwt-auth
 ============
 
 STEP.1
+
 composer require labspace/auth-api
 
 
@@ -22,13 +26,15 @@ composer require labspace/auth-api
 STEP.2
 
 到config/app.php 的providers加上
- // Our new package class
+
 Labspace\AuthApi\AuthApiServiceProvider::class,
 
+============
 
 STEP.3
 
 到app/Http/Kernal
+
 把專屬的middleware新增到routeMiddleware
 
 'jwt' => \Labspace\AuthApi\Middleware\AuthJWT::class, //labsapce jwt
@@ -37,6 +43,8 @@ STEP.3
 如果沒有cors設定也可以加進去
 
 'cors' => \Labspace\AuthApi\Middleware\CORS::class, //labsapce cross-domain
+
+============
 
 STEP.4
 
