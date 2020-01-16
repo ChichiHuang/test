@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": "^7.0",
-        "tymon/jwt-auth": "dev-develop"
+        "tymon/jwt-auth": "^1.0.0-rc.4.1"
     },
     "license": "MIT",
     "authors": [
