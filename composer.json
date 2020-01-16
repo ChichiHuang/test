@@ -12,7 +12,7 @@
             "email": "kurapica@gmail.com"
         }
     ],
-    "minimum-stability": "1.0.1",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Labspace\\AuthApi\\": "src/"

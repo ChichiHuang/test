@@ -5,50 +5,28 @@
 STEP.0 
 jwt先安裝設定好
 
-STEP.1
-composer.json檔 autoload.psr-4  autoload-dev.psr-4加上這個package的路徑
+https://github.com/tymondesigns/jwt-auth
 
-示意：
+"tymon/jwt-auth": "dev-develop"
 
-"autoload": {
-    "classmap": [
-        "database/seeds",
-        "database/factories"
-    ],
-    "psr-4": {
-        "App\\": "app/",
-        "Labspace\\AuthApi\\": "labspace/auth-api/src"
-    },
-    "files": [
-      "app/helpers.php"
-    ]
-},
-"autoload-dev": {
-    "psr-4": {
-        "Tests\\": "tests/",
-        "Labspace\\AuthApi\\": "labspace/auth-api/src"
-    }
-},
 
 ============
+
+STEP.1
+composer require labspace/auth-api
+
+
+============
+
 
 STEP.2
-
-composer dump-autoload
-
-============
-
-STEP.3
 
 到config/app.php 的providers加上
  // Our new package class
 Labspace\AuthApi\AuthApiServiceProvider::class,
 
-STEP.4
 
-composer update
-
-STEP.5
+STEP.3
 
 到app/Http/Kernal
 把專屬的middleware新增到routeMiddleware
@@ -60,7 +38,7 @@ STEP.5
 
 'cors' => \Labspace\AuthApi\Middleware\CORS::class, //labsapce cross-domain
 
-STEP.6
+STEP.4
 
 php artisan vendor:publish --tag=config
 
