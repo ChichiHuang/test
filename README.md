@@ -8,14 +8,19 @@ STEP.0
 
 jwt先安裝設定好
 
-https://github.com/tymondesigns/jwt-auth
+https://jwt-auth.readthedocs.io/en/develop/
 
 "tymon/jwt-auth": "dev-develop"
 
+User model請先跟jwt做連結、config也要設定，請參考：
+
+https://jwt-auth.readthedocs.io/en/develop/quick-start/
 
 ============
 
 STEP.1
+
+安裝套件
 
 composer require labspace/auth-api
 
@@ -35,7 +40,7 @@ STEP.3
 
 到app/Http/Kernal
 
-把專屬的middleware新增到routeMiddleware
+把專屬jwt登入驗證的middleware新增到routeMiddleware
 
 'jwt' => \Labspace\AuthApi\Middleware\AuthJWT::class, //labsapce jwt
 
@@ -60,9 +65,9 @@ php artisan vendor:publish --tag=config
 使用說明
 
 [登入 - POST]
-username:帳號
-password:密碼
-role:身份  （admin member）
+username:帳號(必填)
+password:密碼(必填)
+role:身份  （選填 admin member 若user model 沒有區分也可以不加）
 
 http://[server_url]/lab/api/auth/login?username=test&password=123456&role=member
 
